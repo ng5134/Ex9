@@ -28,8 +28,10 @@ public class MainActivity extends AppCompatActivity {
         click= (Button) findViewById(R.id.click);
 
         wV.getSettings().setJavaScriptEnabled(true);
-        wV.loadUrl(stringUrl);
         wV.setWebViewClient(new MyWebViewClient());
+        wV.loadUrl(stringUrl);
+        stringUrl = "https://www.google.com";
+
 
     }
 
@@ -40,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private class MyWebViewClient extends WebViewClient {
-        public boolean shouldOverideUrlLoading(WebView view, String url) {
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
             view.loadUrl(url);
             return true;
         }
